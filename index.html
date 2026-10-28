@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Người Quen Xì Gòn</title>
+<meta name="description" content="Người Quen Xì Gòn — Bạn muốn vẽ dự án ma, đừng lo đã tui. Vuốt xem khoảnh khắc, điền nguyện vọng và chọn thời gian.">
+<meta name="theme-color" content="#fff4dc">
+<meta property="og:title" content="Người Quen Xì Gòn">
+<meta property="og:description" content="Bạn muốn vẽ dự án ma — Đừng lo đã tui.">
+<meta property="og:image" content="assets/01-nhom.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%87%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div id="progress" aria-hidden="true"></div>
+
+<header class="top" id="hdr">
+  <div class="wrap bar">
+    <a href="#top" class="brand">Người Quen Xì Gòn<span>✦</span></a>
+    <button class="burger" id="burger" aria-label="Mở menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+    <nav id="nav">
+      <ul>
+        <li><a href="#top" class="nav-link active" data-sec="top">Trang chủ</a></li>
+        <li><a href="#khoanh-khac" class="nav-link" data-sec="khoanh-khac">Khoảnh khắc</a></li>
+        <li><a href="#keo" class="nav-link" data-sec="keo">Kèo gợi ý</a></li>
+        <li><a href="#quy-trinh" class="nav-link" data-sec="quy-trinh">Quy trình</a></li>
+        <li><a href="#dang-ky" class="nav-link nav-cta" data-sec="dang-ky">Đăng ký</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <figure class="float-ph p1"><img src="assets/01-nhom.webp" alt="" loading="eager"></figure>
+  <figure class="float-ph p2"><img src="assets/06-het.webp" alt="" loading="eager"></figure>
+  <figure class="float-ph p3"><img src="assets/04-rieng.webp" alt="" loading="lazy"></figure>
+  <div class="wrap hero-inner">
+    <h1 class="split" id="heroTitle">Người Quen Xì Gòn</h1>
+    <p class="slogan-main">Bạn muốn vẽ dự án ma — <em>Đừng lo đã tui</em></p>
+    <div class="hero-cta">
+      <a class="btn magnetic" href="#dang-ky">Điền nguyện vọng <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn ghost magnetic" href="#khoanh-khac">Xem khoảnh khắc</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Hét quên lối về</span><b>✦</b><span>Tươi nhưng mờ vãi</span><b>✦</b><span>Đẹp gái có ảnh đẹp</span><b>✦</b><span>Cười tươi phết</span><b>✦</b>
+    <span>Hét quên lối về</span><b>✦</b><span>Tươi nhưng mờ vãi</span><b>✦</b><span>Đẹp gái có ảnh đẹp</span><b>✦</b><span>Cười tươi phết</span><b>✦</b>
+  </div>
+</div>
+
+<!-- GIỚI THIỆU -->
+<section class="sec" id="gioi-thieu">
+  <div class="wrap narrow">
+    <header class="sec-head reveal"><small>Về hội</small><h2>Một hội, nhiều kèo, <span class="grad">không bao giờ hết chuyện</span></h2></header>
+    <p class="lead reveal">Bọn mình tụ lại khi có đứa rủ "đi đâu đó đi". Quán ăn, phòng hát, góc cà phê có ánh đèn đẹp — chỗ nào cũng có tiếng cười và vài chục tấm ảnh mờ mờ nhưng không đứa nào nỡ xoá.</p>
+    <p class="lead reveal">Trang này để cả hội cùng chọn: <b>muốn đi đâu</b> và <b>rảnh lúc nào</b>. Điền xong là tụi mình tổng hợp, chốt giờ rồi báo lại.</p>
+  </div>
+</section>
+
+<!-- SWIPE -->
+<section class="sec" id="khoanh-khac">
+  <div class="wrap">
+    <header class="sec-head center reveal"><small>Khoảnh khắc</small><h2>Vuốt thử <span class="grad">xem ai tươi nhất</span></h2><p class="sub">Vuốt phải để thả tim, vuốt trái để bỏ qua. Dùng được cả phím ← →.</p></header>
+
+    <div class="deck-wrap reveal">
+      <div class="deck" id="deck" tabindex="0" aria-roledescription="chồng thẻ ảnh" aria-label="Chồng thẻ ảnh, dùng phím mũi tên trái phải để vuốt">
+        <article class="card wide" data-pos="50% 50%"><div class="bg" style="background-image:url(assets/01-nhom.webp)"></div><img class="fg" src="assets/01-nhom.webp" alt="Cả nhóm chụp chung ở quán ăn tối" draggable="false"><div class="cap"><p class="slogan">Avatar nhóm</p></div><span class="stamp like">THÍCH</span><span class="stamp nope">BỎ QUA</span></article>
+        <article class="card wide"><div class="bg" style="background-image:url(assets/02-cuoi.webp)"></div><img class="fg" src="assets/02-cuoi.webp" alt="Ảnh cười tươi" draggable="false"><div class="cap"><p class="slogan">Cười tươi phết</p></div><span class="stamp like">THÍCH</span><span class="stamp nope">BỎ QUA</span></article>
+        <article class="card wide"><div class="bg" style="background-image:url(assets/03-dep.webp)"></div><img class="fg" src="assets/03-dep.webp" alt="Ảnh đẹp" draggable="false"><div class="cap"><p class="slogan">Đẹp gái có ảnh đẹp</p></div><span class="stamp like">THÍCH</span><span class="stamp nope">BỎ QUA</span></article>
+        <article class="card"><div class="bg" style="background-image:url(assets/04-rieng.webp)"></div><img class="fg" src="assets/04-rieng.webp" alt="Ảnh chụp riêng hai bạn" draggable="false" style="object-position:50% 40%"><div class="cap"><p class="slogan">Đẹp gái chụp riêng</p></div><span class="stamp like">THÍCH</span><span class="stamp nope">BỎ QUA</span></article>
+        <article class="card"><div class="bg" style="background-image:url(assets/05-musicbox.webp)"></div><img class="fg" src="assets/05-musicbox.webp" alt="Ảnh ở musicbox" draggable="false"><div class="cap"><p class="slogan">Đi musicbox, có người xin chụp ảnh để đăng Locket</p></div><span class="stamp like">THÍCH</span><span class="stamp nope">BỎ QUA</span></article>
+        <article class="card wide"><div class="bg" style="background-image:url(assets/06-het.webp)"></div><img class="fg" src="assets/06-het.webp" alt="Cả nhóm hát karaoke đội mũ cao bồi" draggable="false"><div class="cap"><p class="slogan">Hét quên lối về</p></div><span class="stamp like">THÍCH</span><span class="stamp nope">BỎ QUA</span></article>
+        <article class="card wide"><div class="bg" style="background-image:url(assets/07-tuoi.webp)"></div><img class="fg" src="assets/07-tuoi.webp" alt="Ảnh hơi mờ nhưng tươi" draggable="false"><div class="cap"><p class="slogan">Tươi nhưng mờ vãi</p></div><span class="stamp like">THÍCH</span><span class="stamp nope">BỎ QUA</span></article>
+        <article class="card wide"><div class="bg" style="background-image:url(assets/08-mo.webp)"></div><img class="fg" src="assets/08-mo.webp" alt="Ảnh mờ" draggable="false"><div class="cap"><p class="slogan">Mờ v2</p></div><span class="stamp like">THÍCH</span><span class="stamp nope">BỎ QUA</span></article>
+      </div>
+
+      <div class="deck-ctrl">
+        <button type="button" class="round nope" id="btnNope" aria-label="Bỏ qua"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        <button type="button" class="round undo" id="btnUndo" aria-label="Quay lại thẻ trước"><svg viewBox="0 0 24 24"><path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 010 12h-3"/></svg></button>
+        <button type="button" class="round like" id="btnLike" aria-label="Thả tim"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 018-3 4.6 4.6 0 018 3c0 5.800-8 11-8 11z"/></svg></button>
+      </div>
+      <p class="deck-status" id="deckStatus" aria-live="polite">♥ 0</p>
+    </div>
+  </div>
+</section>
+
+<!-- KÈO GỢI Ý -->
+<section class="sec" id="keo">
+  <div class="wrap">
+    <header class="sec-head center reveal"><small>Kèo gợi ý</small><h2>Muốn đi đâu, <span class="grad">cứ chọn</span></h2></header>
+    <div class="grid3">
+      <article class="hl tilt reveal"><span class="num">01</span><h3>Ăn tối</h3><p>Quán gỗ đèn vàng, ngồi lâu không ai giục.</p></article>
+      <article class="hl tilt reveal"><span class="num">02</span><h3>Musicbox</h3><p>Cầm mic hát sai nhịp vẫn được vỗ tay.</p></article>
+      <article class="hl tilt reveal"><span class="num">03</span><h3>Cà phê chụp ảnh</h3><p>Tìm góc đẹp rồi chụp tới hết pin.</p></article>
+      <article class="hl tilt reveal"><span class="num">04</span><h3>Xem phim</h3><p>Cả hội chọn một phim, ngồi hàng cuối.</p></article>
+      <article class="hl tilt reveal"><span class="num">05</span><h3>Photobooth</h3><p>Bấm chụp, tạo dáng, giữ dải ảnh.</p></article>
+      <article class="hl tilt reveal"><span class="num">06</span><h3>Trượt patin</h3><p>Ngã thì cười, đứng dậy ngã tiếp.</p></article>
+      <article class="hl tilt reveal"><span class="num">07</span><h3>Trượt băng</h3><p>Nắm tay nhau đi từng bước.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- QUY TRÌNH -->
+<section class="sec" id="quy-trinh">
+  <div class="wrap narrow">
+    <header class="sec-head center reveal"><small>Quy trình</small><h2>Từ rủ rê đến <span class="grad">có mặt</span></h2></header>
+    <ol class="timeline" id="timeline">
+      <li class="tl reveal"><span class="dot">1</span><div><h3>Điền nguyện vọng</h3><p>Chọn kèo bạn thích và ngày giờ bạn rảnh. Mất chưa tới một phút.</p></div></li>
+      <li class="tl reveal"><span class="dot">2</span><div><h3>Tổng hợp</h3><p>Tụi mình gom câu trả lời của cả hội vào một bảng để xem chỗ nào, giờ nào nhiều người chọn nhất.</p></div></li>
+      <li class="tl reveal"><span class="dot">3</span><div><h3>Chốt kèo</h3><p>Chọn ra phương án được nhiều người hợp nhất và nhắn lại cho từng người.</p></div></li>
+      <li class="tl reveal"><span class="dot">4</span><div><h3>Đi thôi</h3><p>Có mặt, ăn, hát, chụp. Ảnh nào tươi nhất sẽ lên chồng thẻ ở trên.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="sec" id="dang-ky">
+  <div class="wrap narrow">
+    <header class="sec-head center reveal"><small>Đăng ký</small><h2>Nguyện vọng & <span class="grad">thời gian</span></h2><p class="sub">Điền một lần, tụi mình lo phần còn lại.</p></header>
+
+    <div class="form-card reveal">
+      <form id="wishForm" novalidate autocomplete="on">
+        <fieldset class="fld who">
+          <legend>Bạn là ai? <i>*</i></legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="name" value="Thuỳ Trang"><span>Thuỳ Trang</span></label>
+            <label class="chip"><input type="radio" name="name" value="Thương Yến"><span>Thương Yến</span></label>
+            <label class="chip"><input type="radio" name="name" value="Mạnh Đức"><span>Mạnh Đức</span></label>
+            <label class="chip"><input type="radio" name="name" value="Admin cute"><span>Admin cute</span></label>
+          </div>
+          <div class="greet" id="greet" hidden aria-live="polite"><span class="em" id="greetEm" aria-hidden="true"></span><p id="greetTxt"></p></div>
+          <em class="err" data-for="name"></em>
+        </fieldset>
+
+        <fieldset class="fld">
+          <legend>Bạn muốn đi kèo nào? <small>(chọn nhiều được)</small></legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="wish" value="Ăn tối"><span>Ăn tối</span></label>
+            <label class="chip"><input type="checkbox" name="wish" value="Musicbox / Karaoke"><span>Musicbox</span></label>
+            <label class="chip"><input type="checkbox" name="wish" value="Song ca cùng Admin cute"><span>Song ca cùng Admin cute</span></label>
+            <label class="chip"><input type="checkbox" name="wish" value="Cà phê chụp ảnh"><span>Cà phê chụp ảnh</span></label>
+            <label class="chip"><input type="checkbox" name="wish" value="Photobooth"><span>Photobooth</span></label>
+            <label class="chip"><input type="checkbox" name="wish" value="Xem phim"><span>Xem phim</span></label>
+            <label class="chip"><input type="checkbox" name="wish" value="Trượt patin"><span>Trượt patin</span></label>
+            <label class="chip"><input type="checkbox" name="wish" value="Trượt băng"><span>Trượt băng</span></label>
+            <label class="chip"><input type="checkbox" name="wish" value="Đi chơi xa"><span>Đi chơi xa</span></label>
+          </div>
+          <em class="err" data-for="wish"></em>
+        </fieldset>
+
+        <label class="fld"><span>Nguyện vọng riêng của bạn</span><textarea name="wishText" rows="3" maxlength="500" placeholder="Ví dụ: muốn thử quán lẩu mới, hát bài nào đó, ..."></textarea></label>
+
+        <div class="fld cal-fld">
+          <span>Những ngày bạn rảnh <i>*</i> <small>(chọn được nhiều ngày)</small></span>
+          <div class="cal" style="--cal-bg:url(assets/01-nhom.webp)">
+            <div class="cal-head">
+              <button type="button" class="cal-nav" id="calPrev" aria-label="Tháng trước"><b>‹</b></button>
+              <strong id="calTitle" aria-live="polite"></strong>
+              <button type="button" class="cal-nav" id="calNext" aria-label="Tháng sau"><b>›</b></button>
+            </div>
+            <div class="cal-week" aria-hidden="true"><span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>CN</span></div>
+            <div class="cal-grid" id="calGrid"></div>
+          </div>
+          <div class="picked" id="picked" aria-live="polite"></div>
+          <input type="hidden" name="dates" id="datesInput">
+          <em class="err" data-for="dates"></em>
+        </div>
+
+          <fieldset class="fld">
+            <legend>Khung giờ <i>*</i></legend>
+            <div class="chips tight">
+              <label class="chip"><input type="radio" name="slot" value="Sáng (8–11h)"><span>Sáng</span></label>
+              <label class="chip"><input type="radio" name="slot" value="Trưa–chiều (12–17h)"><span>Chiều</span></label>
+              <label class="chip"><input type="radio" name="slot" value="Tối (18–21h)"><span>Tối</span></label>
+              <label class="chip"><input type="radio" name="slot" value="Khuya (sau 21h)"><span>Khuya</span></label>
+            </div>
+            <em class="err" data-for="slot"></em>
+          </fieldset>
+
+        <fieldset class="fld roast">
+          <legend>Bạn muốn “nấu xói” ai trong buổi hôm đó? <small>(không bắt buộc)</small></legend>
+          <p class="hint">Khai trước để bọn mình chuẩn bị sẵn nguyên liệu: kể tội, ảnh xấu, tin nhắn cũ, bằng chứng… Nấu cho vui thôi, đừng để cháy nha.</p>
+          <textarea name="roastText" rows="3" maxlength="400" placeholder="Đức cưa Thanh Huyền xịt nè, Đức cưa bạn gì đánh bóng chuyền dạy sử này..."></textarea>
+        </fieldset>
+
+        <label class="fld"><span>Ghi chú thêm</span><textarea name="note" rows="2" maxlength="300" placeholder="Ví dụ: đến trễ 15 phút, không ăn cay, ..."></textarea></label>
+
+        <!-- honeypot: người thật không thấy, bot hay điền -->
+        <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+        <button class="btn submit magnetic" type="submit" id="submitBtn"><span class="lbl">Gửi nguyện vọng</span><span class="spin" aria-hidden="true"></span></button>
+        <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="success" id="success" hidden>
+        <div class="check"><svg viewBox="0 0 24 24"><path d="M5 12.500l4.500 4.500L19 7.500"/></svg></div>
+        <h3>Đã nhận nguyện vọng của bạn!</h3>
+        <p>Tụi mình sẽ tổng hợp cả hội rồi nhắn lại để chốt kèo.</p>
+        <button type="button" class="btn small ghost" id="again">Gửi thêm một lượt</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="hoi-dap">
+  <div class="wrap narrow">
+    <header class="sec-head center reveal"><small>Hỏi nhanh</small><h2>Có thể bạn muốn biết</h2></header>
+    <div class="faq reveal">
+      <details><summary>Điền rồi có sửa được không?</summary><p>Bạn cứ gửi lượt mới, tụi mình sẽ lấy lượt gửi sau cùng của bạn.</p></details>
+      <details><summary>Thông tin của tôi có bị lộ không?</summary><p>Form chỉ hỏi bạn là ai, kèo muốn đi và ngày rảnh. Mọi thứ chỉ dùng để chốt kèo trong hội, không chia sẻ ra ngoài.</p></details>
+      <details><summary>Rảnh nhiều ngày thì sao?</summary><p>Cứ bấm chọn hết các ngày bạn rảnh trên lịch. Càng nhiều lựa chọn, càng dễ chốt.</p></details>
+      <details><summary>Có ảnh về CapCut giật giật không?</summary><p>Có chứ. Ảnh mờ, video giật, chuyển cảnh lệch nhịp là đặc sản của hội, đảm bảo đủ combo.</p></details>
+      <details><summary>Có trai đẹp không?</summary><p>Có. Admin cute đã xác nhận: đương nhiên là trai đẹp rồi.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p class="foot-slogan">Hét quên lối về ✦</p>
+    <p class="muted">Người Quen Xì Gòn · Làm cho vui, không vì mục đích gì khác.</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Lên đầu trang"><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></button>
+
+<script src="script.js"></script>
+</body>
+</html>
